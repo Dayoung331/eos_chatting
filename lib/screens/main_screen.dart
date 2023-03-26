@@ -1,3 +1,5 @@
+import 'dart:js_util';
+
 import 'package:flutter/material.dart';
 import '../config/palette.dart';
 class LoginSignUpScreen extends StatefulWidget {
@@ -153,10 +155,75 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen>{
                           ),
                         ),
                       )
-
                     ],
                   ),
-                ))  //Positioned(child: child)
+                )
+            ),
+            Positioned(
+              top: 430,
+              right: 0,
+              left: 0,
+              child: Center(
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  height: 90,
+                  width: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.lightGreen, Colors.green],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight
+                      ),
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 1,
+                          blurRadius: 1,
+                          offset: Offset(0, 1)
+                        )
+                      ]
+                    ),
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+                top: MediaQuery.of(context).size.height - 150,
+                right: 0,
+                left: 0,
+                child: Column(
+                  children: [
+                    Text(
+                      isSignupScreen == true ? 'or Signup with' : 'or Signin with',
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextButton.icon(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        minimumSize: Size(155, 40),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        backgroundColor: Palette.googleColor,
+                      ),
+                      icon: Icon(Icons.add),
+                      label: Text('Google'),
+                    )
+                  ],
+                )
+            )//Positioned(child: child)
           ],
         )
     );
